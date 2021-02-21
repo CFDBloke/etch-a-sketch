@@ -77,7 +77,7 @@ button:active {
     display: grid;
     background-color: transparent;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 3fr;
+    grid-template-rows: 1fr 1fr 1fr 3fr;
     grid-template-areas:
         "grid-size"
         "colour"
@@ -86,8 +86,31 @@ button:active {
         ".";
 }
 
+.input-label {
+    color: rgba(207,181,28,1);
+    font-family: 'Akaya Kanadaka', cursive, Arial, sans-serif;
+    font-size: 1.5vw;
+    padding-left: 0.5em;
+}
+
 .grid-container {
     grid-area: grid-container;
+}
+
+.grid-size, .segment-colour {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1 fr 1fr;
+    grid-template-areas:
+        "label"
+        "input";
+    align-content: flex-end;
+}
+
+.reset {
+    display: grid;
+    align-content: flex-end;
+    justify-content: left;
 }
 
 .segment {
@@ -100,19 +123,16 @@ button:active {
 
 }
 
+.grid-size-label {
+    grid-area: label;
+}
+
 .grid-size {
     grid-area: grid-size;
 }
 
-.input-label {
-    color: rgba(207,181,28,1);
-    font-family: 'Akaya Kanadaka', cursive, Arial, sans-serif;
-    font-size: 1.5vw;
-    padding-left: 0.5em;
-    
-}
-
 .grid-size-input {
+    grid-area: input;
     width: 3em;
     font-family: Arial, sans-serif;
     font-size: 1.5vw;
@@ -126,7 +146,12 @@ button:active {
     outline-color: rgba(207,181,28,1);
 }
 
+.segment-colour-label {
+    grid-area: label;
+}
+
 .segment-colour-input {
+    grid-area: input;
     margin-left: 1em;
     height:3em;
 }
@@ -153,4 +178,37 @@ footer {
     color: rgba(207,181,28,1);
     text-align: center;
     font-size: 2vw;
+}
+
+@media only screen and (max-width: 800px) {
+    main {
+        grid-template-areas:
+        ". controls ."
+        ". grid-container ."
+        "left-knob . right-knob";
+    }
+
+    .controls {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas:
+            "grid-size colour reset";
+    }
+
+    button {
+        font-size: 10px;
+    }
+
+    .input-label {
+        font-size: 2.5vw;
+    }
+
+    .grid-size-input {
+        font-size: 2.5vw;
+    }
+
+    .reset {
+        margin-bottom: 0.5em;
+    }
+
 }
