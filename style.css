@@ -45,10 +45,29 @@ main {
 }
 
 h1 {
-    color: rgba(207,181,28,59);
+    color: rgba(207,181,28,1);
     font-family: 'Akaya Kanadaka', cursive, Arial, sans-serif;
     font-size: 5vw;
     text-align: center;
+}
+
+button {
+    background-color: rgba(207,181,28,1);
+    color: rgba(218,41,28,1);
+    margin-left: 0.5em;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 1.5em;
+    font-weight: 700;
+    border-radius: 10px;
+}
+
+button:focus {
+    outline-style: none;
+}
+
+button:active {
+    background-color: white;
 }
 
 .controls {
@@ -86,7 +105,7 @@ h1 {
 }
 
 .input-label {
-    color: rgba(207,181,28,59);
+    color: rgba(207,181,28,1);
     font-family: 'Akaya Kanadaka', cursive, Arial, sans-serif;
     font-size: 1.5vw;
     padding-left: 0.5em;
@@ -104,11 +123,11 @@ h1 {
 }
 
 .grid-size-input:focus {
-    outline-color: rgba(207,181,28,59);
+    outline-color: rgba(207,181,28,1);
 }
 
-.segment-colour {
-    margin-left: 0.5em;
+.segment-colour-input {
+    margin-left: 1em;
     height:3em;
 }
 
@@ -131,7 +150,7 @@ h1 {
 }
 
 footer {
-    color: rgba(207,181,28,59);
+    color: rgba(207,181,28,1);
     text-align: center;
     font-size: 2vw;
 }

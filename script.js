@@ -6,8 +6,17 @@ function startSketching() {
 
     const gridContainer = document.querySelector('.grid-container');
     const gridSizeInput = document.querySelector('.grid-size-input');
+    const resetButton = document.querySelector('.reset-button');
 
-    gridSizeInput.addEventListener('change', () => {
+    resetButton.addEventListener('click', regenerateDivGrid);
+
+    gridSizeInput.addEventListener('change', regenerateDivGrid);
+
+    generateGridTemplate(gridContainer, gridSize);
+
+    insertDivGrid(gridContainer, gridSize);
+
+    function regenerateDivGrid() {
         
         if (gridSizeInput.value > 100) {
             gridSizeInput.value = 100;
@@ -20,12 +29,7 @@ function startSketching() {
         deleteDivGrid(gridContainer);
 
         insertDivGrid(gridContainer, gridSizeInput.value);
-
-    });
-
-    generateGridTemplate(gridContainer, gridSize);
-
-    insertDivGrid(gridContainer, gridSize);
+    }
     
 }
 
@@ -34,13 +38,6 @@ function generateGridTemplate(gridContainer, gridSize) {
     gridContainer.style.display =  'grid'; 
     gridContainer.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
     gridContainer.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
-
-}
-
-function regenerateGridTemplate(gridContainer, gridSizeInput) {
-
-    let gridSize = gridSizeInput.value;
-
 
 }
 
@@ -54,7 +51,7 @@ function insertDivGrid(gridContainer, gridSize) {
             div.style.gridArea = `${i} / ${j}`;
             div.className = 'segment';
 
-            div.addEventListener('mouseover', colourSegment)
+            div.addEventListener('mouseover', colourSegment);
 
             div.addEventListener('mousedown', () => {
                 div.removeEventListener('mouseover', colourSegment)
