@@ -1,0 +1,137 @@
+/* override browser default */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgba(218,41,28,1);
+}
+
+/* use viewport-relative units to cover page fully */
+body {
+
+    height: 75vh;
+    width: 100vw;
+    display: flex;
+    flex-flow: column;
+    align-self: stretch;
+}
+
+header {
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+}
+
+footer {
+    flex: 0 1 40px;
+}
+
+/* include border and padding in element width and height */
+* {
+    box-sizing: content-box;
+}
+
+main {
+    display: grid;
+    flex: 1 1 auto;
+    width: 100%;
+    height: 80%;
+    grid-template-columns: 1fr 50vw 1fr;
+    grid-template-rows: 1fr 50vh 1fr;
+    grid-template-areas:
+        ". . ."
+        ". grid-container controls"
+        "left-knob . right-knob";
+}
+
+h1 {
+    color: rgba(207,181,28,59);
+    font-family: 'Akaya Kanadaka', cursive, Arial, sans-serif;
+    font-size: 5vw;
+    text-align: center;
+}
+
+.controls {
+    grid-area: controls;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    background-color: transparent;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 3fr;
+    grid-template-areas:
+        "grid-size"
+        "colour"
+        "reset"
+        "."
+        ".";
+}
+
+.grid-container {
+    grid-area: grid-container;
+}
+
+.segment {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+
+}
+
+.grid-size {
+    grid-area: grid-size;
+}
+
+.input-label {
+    color: rgba(207,181,28,59);
+    font-family: 'Akaya Kanadaka', cursive, Arial, sans-serif;
+    font-size: 1.5vw;
+    padding-left: 0.5em;
+    
+}
+
+.grid-size-input {
+    width: 3em;
+    font-family: Arial, sans-serif;
+    font-size: 1.5vw;
+    margin-left: 0.5em;
+    text-align: center;
+    border-style: none;
+    border-radius: 0.25em;
+}
+
+.grid-size-input:focus {
+    outline-color: rgba(207,181,28,59);
+}
+
+.segment-colour {
+    margin-left: 0.5em;
+    height:3em;
+}
+
+.left-knob, .right-knob {
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    width: 8vw;
+    height: 8vw;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.left-knob {
+    grid-area: left-knob;
+}
+
+.right-knob {
+    grid-area: right-knob;
+}
+
+footer {
+    color: rgba(207,181,28,59);
+    text-align: center;
+    font-size: 2vw;
+}

@@ -1,0 +1,1 @@
+A replication of the kids classic etch-a-sketch toy
